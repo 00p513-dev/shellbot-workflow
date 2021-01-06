@@ -3,10 +3,10 @@ name: setting up environment
 on: [push]
     
 env:
- username: ElytrA8
+ username: 00p513-dev
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
        - name: Checkout
@@ -15,9 +15,9 @@ jobs:
        - name: initialization
          continue-on-error: true
          run: |
-           git config --global user.name "ElytrA8"
-           git config --global user.email "manofuranium@gmail.com"         
-           brew install nodejs        
+           git config --global user.name "00p513-dev"
+           git config --global user.email "00p513@protonmail.com"    
+           pip3 install python-telegram-bot            
        - name: cloning repo & setting up config
          continue-on-error: true
          run: |
@@ -30,17 +30,12 @@ jobs:
            set timeout -1
            catch wait result
            interact"
-       - name: compilation
-         continue-on-error: true
-         run: |
-           cd source
-           npm install
        - name: running Bot
          timeout-minutes: 340
          continue-on-error: true
          run: |
            cd source
-           node server          
+           python3 bot.py          
        - name: Loop workflow
          continue-on-error: true
          run: |
