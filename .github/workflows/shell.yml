@@ -16,7 +16,8 @@ jobs:
          continue-on-error: true
          run: |
            git config --global user.name "00p513-dev"
-           git config --global user.email "00p513@protonmail.com"    
+           git config --global user.email "00p513@protonmail.com"  
+           apt install expect  
            pip3 install python-telegram-bot            
        - name: cloning repo & setting up config
          continue-on-error: true
